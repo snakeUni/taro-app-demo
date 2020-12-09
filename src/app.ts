@@ -1,20 +1,25 @@
-import { Component } from 'react'
-import './app.scss'
+import { Component } from "react";
+import "./app.scss";
 
 class App extends Component {
+  componentDidMount() {
+    console.log("app mount");
+  }
 
-  componentDidMount () {}
+  componentDidShow() {
+    console.log("app show");
+  }
 
-  componentDidShow () {}
+  componentDidHide() {
+    console.log("app hide");
+  }
 
-  componentDidHide () {}
-
-  componentDidCatchError () {}
+  componentDidCatchError() {}
 
   // this.props.children 是将要会渲染的页面
-  render () {
-    return this.props.children
+  render() {
+    return this.props.children;
   }
 }
 
-export default App
+export default App;

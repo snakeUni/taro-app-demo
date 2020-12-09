@@ -1,19 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Taro, {
   useDidShow,
   useReady,
   useDidHide,
   usePullDownRefresh,
+  createSelectorQuery,
+  NodesRef,
 } from "@tarojs/taro";
 import { View, Text } from "@tarojs/components";
 import "./index.scss";
 
+export interface TDomRectInfo {
+  rect: NodesRef.BoundingClientRectCallbackResult;
+}
+
 export default function Component() {
   const [count, setCount] = useState(0);
+  const ref = useRef();
   useDidShow(() => {
-    Taro.showNavigationBarLoading();
+    // Taro.showNavigationBarLoading();
     console.log("did show", count);
-    // setCount(count + 1);
+    setCount(count + 1);
   });
 
   usePullDownRefresh(() => {
@@ -30,13 +37,12 @@ export default function Component() {
 
   useEffect(() => {
     console.log("effect", count);
-    // setCount(count + 1);
   });
 
   console.log("render", count);
 
   return (
-    <View className="index">
+    <View className="index" ref={ref} id="adc-11">
       <Text onClick={() => setCount(count + 1)}>Hello world!{count}</Text>
     </View>
   );
