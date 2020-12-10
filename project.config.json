@@ -41,5 +41,16 @@
   "compileType": "miniprogram",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "condition": {}
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "优化页面",
+          "pathName": "pages/optimize/index",
+          "query": "",
+          "scene": 1
+        }
+      ]
+    }
+  }
 }
